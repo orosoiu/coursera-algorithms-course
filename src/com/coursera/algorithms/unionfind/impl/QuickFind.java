@@ -11,12 +11,17 @@ public class QuickFind extends AbstractUnionFind {
     }
 
     @Override
-    public void union(int p, int q) {
-        int pid = roots[p];
-        int qid = roots[q];
+    public boolean areNodesConnected(int firstNode, int secondNode) {
+        return roots[firstNode] == roots[secondNode];
+    }
+
+    @Override
+    public void union(int firstNode, int secondNode) {
+        int firstNodeRoot = roots[firstNode];
+        int secondNodeRoot = roots[secondNode];
         for (int i=0; i<getPoolSize(); i++) {
-            if(roots[i] == pid) {
-                roots[i] = qid;
+            if(roots[i] == firstNodeRoot) {
+                roots[i] = secondNodeRoot;
             }
         }
     }

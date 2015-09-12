@@ -15,26 +15,27 @@ public abstract class AbstractUnionFind {
         }
     }
 
-    protected int getRoot(int v) {
-        while(roots[v] != v) {
-            v = roots[v];
-        }
-        return v;
-    }
-
     protected int getPoolSize() {
         return roots.length;
     }
+
+    /**
+     * Tells whether the nodes are connected
+     * @param p first node
+     * @param q second node
+     * @return
+     */
+    public abstract boolean areNodesConnected(int p, int q);
+
+    /**
+     * The method that joins two nodes together
+     * @param firstNode first node
+     * @param secondNode second node
+     */
+    public abstract void union(int firstNode, int secondNode);
 
     @Override
     public String toString() {
         return Arrays.toString(roots);
     }
-
-    /**
-     * The method that joins two nodes together
-     * @param p first node
-     * @param q second node
-     */
-    public abstract void union(int p, int q);
 }

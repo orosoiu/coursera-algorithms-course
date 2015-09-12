@@ -1,6 +1,7 @@
 package com.coursera.algorithms;
 
 import com.coursera.algorithms.unionfind.impl.QuickFind;
+import com.coursera.algorithms.unionfind.impl.WeightedQuickUnion;
 
 import java.util.Scanner;
 
@@ -10,7 +11,8 @@ import java.util.Scanner;
 class Main {
 
     public static void main(String[] args) {
-        QuickFind quickFind = new QuickFind(10);
+//        QuickFind quickFind = new QuickFind(10);
+        WeightedQuickUnion quickFind = new WeightedQuickUnion(10);
         String input;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the nodes to connect, separated by space. Enter an empty line to finish.\n");
