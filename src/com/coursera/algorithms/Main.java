@@ -1,22 +1,18 @@
 package com.coursera.algorithms;
 
-import com.coursera.algorithms.unionquickfind.UnionQuickFind;
+import com.coursera.algorithms.unionfind.impl.QuickFind;
 
 import java.util.Scanner;
 
 /**
  * Created by orosoiu on 12/09/15.
  */
-public class Main {
+class Main {
 
     public static void main(String[] args) {
-        UnionQuickFind unionQuickFind = new UnionQuickFind(10);
-        String input = null;
+        QuickFind quickFind = new QuickFind(10);
+        String input;
         Scanner scanner = new Scanner(System.in);
-        if (scanner == null) {
-            System.out.println("Unable to fetch console");
-            System.exit(1);
-        }
         System.out.println("Enter the nodes to connect, separated by space. Enter an empty line to finish.\n");
         while(true) {
             input = scanner.nextLine();
@@ -25,8 +21,8 @@ public class Main {
             }
 
             String[] nodes = input.split(" ", 2);
-            unionQuickFind.unionEager(Integer.valueOf(nodes[0]), Integer.valueOf(nodes[1]));
-            System.out.println(unionQuickFind.toString());
+            quickFind.union(Integer.valueOf(nodes[0]), Integer.valueOf(nodes[1]));
+            System.out.println(quickFind.toString());
         }
     }
 }
